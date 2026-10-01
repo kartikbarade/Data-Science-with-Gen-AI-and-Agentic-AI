@@ -1,0 +1,310 @@
+""" 
+                     Dictionary 
+A dictionary in Python is a built-in data structure used to store data 
+in the form of key-value pairs.
+Each key is unique and is used to access its corresponding value. Dictionaries are mutable, 
+meaning we can add, update, and delete items after creating them.
+"""
+student = {
+      "name" : "Kartik",
+      "age" : 21,
+      "branch" : "AIML"
+}
+print(student)
+
+# 1) Definition : A dictionary is an unordered collection of data stored as key-value pairs.
+
+student_data = {
+     "name" : "Kartik",
+     "age" : 21,
+     "address" : "Pune",
+     "Stu_ID" : 101,
+     "Branch" : "AIML"
+}
+print(student_data)
+
+#----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------
+
+# 2) key value Pair concept : 
+""" A dictionary stores in two parts :
+             a) key : A unique identifier used to access a value.
+             b) value : The data associated with the key.   
+"""
+student_data = {
+     "name" : "Kartik",
+     "age" : 21
+}
+print(student_data["name"])
+print(student_data["age"])
+
+#----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------
+# 3) Accesiing Dictionary Elements
+# a) accessing dictionary elements using keys[]
+student_data = {
+     "name" : "Kartik",
+     "age" : 21,
+}
+print(student_data["name"])
+print(student_data["age"])
+
+# b) using the get() method
+student_data = {
+     "name" : "Kartik",
+     "age" : 21,
+}
+print(student_data.get("name"))
+print(student_data.get("age"))
+
+     # accessing the Missing key
+
+student_data = {
+    "name" : "Kartik"
+}
+print(student_data.get("age"))
+
+     # using default value
+student_data = {
+    "name" : "Kartik"
+}
+print(student_data.get("age","Not Available"))
+
+#----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------
+# 4) Modifying dictionary in Python
+# a) adding elements to a dictionary
+student = {
+    "name" : "kartik",
+    "age" : 21
+}
+print(student)
+student["branch"] = "AIML"  # here we add new data (new key-value pair)
+print(student)
+
+# b) Updating Values in a Dictionary
+student = {
+    "name" : "kartik",
+    "age" : 21
+}
+print(student)
+student["age"] = 22 # value is updated to 22
+print(student)
+
+# c) update() method
+student = {
+    "name" : "kartik",
+    "age" : 21
+}
+student.update({"branch":"AIML"}) # adding new element
+print(student)
+
+student = {
+    "name" : "kartik",
+    "age" : 21
+}
+student.update({"age":22})  # Updating Existing Values
+print(student)
+
+student = {
+    "name" : "Omkar",
+    "age" : 21
+}
+student.update({
+    "age" : 22,
+    "branch" : "AIML",
+    "Address" : "Latur",
+    "Friend" : "Kartik"
+})
+print(student)
+
+#----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------
+# 5) Removing Methods
+# a) pop() method
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch" : "AIML"
+}
+result = student.pop("branch")
+print(result)
+print(student)
+
+employee = {
+    "name" : "satish",
+    "emp_id" : 101
+}
+print(student.pop("salary","Not found"))  # using default value
+
+# b) popitem() method
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch" : "AIML"
+}
+result = student.popitem()
+print(result)
+print(student)
+
+# c) del keyword
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch" : "AIML"
+}
+del student["age"]
+print(student)
+
+# d) clear method
+student.clear
+print(student)
+
+#----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------
+# 6) Dictionary Methods
+"""
+Python provides several built-in dictionary methods that help us access, modify,copy 
+and manage key-value pairs.
+"""
+# a) keys()
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch"  : "AIML",
+    "stu_id" : 13
+}
+print(student.keys())
+
+# b) values()
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch"  : "AIML",
+    "stu_id" : 13
+}
+print(student.values())
+
+# c) items()
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch"  : "AIML",
+    "stu_id" : 13
+}
+print(student.items())
+
+# d) copy()
+student = {
+    "name" : "kartik",
+    "age" : 21
+}
+new_student = student.copy()
+print(new_student)
+
+new_student["age"] = 22  # update age
+print(new_student)
+
+# e) setdefault() Method
+student = {
+    "name" : "kartik",
+    "age" : 21
+}
+result = student.setdefault("age",25)   # The existing value is not changed.
+print(student)
+result = student.setdefault("Branch","AIML")
+print(student) 
+
+# f) fromkeys()
+keys = ["Name","Age","Branch"]
+student = dict.fromkeys(keys)
+print(student)
+
+keys = ["Name","Age","Branch"]
+student = dict.fromkeys(keys,"Not Available")
+print(student)
+
+#----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------
+
+# Dictionary Comprehension
+   # for loop
+numbers = [1,2,3,4,5]
+squares = {}
+for i in numbers:
+    squares[i] = i**2
+print(squares)
+
+   # Using Dictionary comprehension
+numbers = [1,2,3,4,5]
+squares = {i:i**2 for i in numbers}
+print(squares)
+
+dict1 = {i:i*i for i in range(15) if i %2 == 0 }
+print(dict1)
+
+#----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------
+# Looping through dictionary in python
+# loop through key
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch" : "AIML"
+}
+for i in student.keys():
+    print(i)
+
+# loop through value
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch" : "AIML"
+}
+for i in student.values():
+    print(i)
+
+# loop through key-value pairs
+student = {
+    "name" : "kartik",
+    "age" : 21,
+    "branch" : "AIML"
+}
+for key,value in student.items():
+    print(key,value)
+
+
+#----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------
+# nested dictionary
+students = {
+    "student1" : {
+        "name" : "Kartik",
+        "age" : 21,
+        "branch" :"AIML",
+        "address" : "Solapur"
+    },
+    "student2" : {
+            "name" : "Omkar",
+            "age" : 21,
+            "branch" :"AIML",
+            "address" : "Latur"
+    },
+    "student3" : {
+            "name" : "Suyash",
+            "age" : 22,
+            "branch" :"AIML",
+            "address" : "Satara"
+    }
+}
+print(students) # print all students data
+
+print(students["student1"]["name"]) #accessing the names of all student
+print(students["student2"]["name"])
+print(students["student3"]["name"])
+
+students["student1"]["age"] = 22  # modifying the age
+print(students)
+
+students["student3"]["id"] = 101  # adding new elements
+print(students)
